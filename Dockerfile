@@ -6,6 +6,6 @@ WORKDIR /app
 
 RUN bash build.sh
 
-RUN bun bootstrap.mjs
+RUN node bootstrap.mjs
 
-CMD ["bun", "bootstrap.mjs"]
+CMD ["node", "bootstrap.mjs"]
