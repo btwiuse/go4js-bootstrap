@@ -7,7 +7,7 @@
 }
 
 [[ -f main.wasm ]] || {
-  curl -sL https://justwasm.github.io/hackpad/wasm/main.wasm > main.wasm
+  curl -sL https://justwasm.github.io/hackpad/wasm/init.wasm > main.wasm
 }
 
 boot=goroot
