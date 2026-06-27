@@ -243,7 +243,7 @@ async function main() {
       CGO_ENABLED: '0',
       TMPDIR: '/tmp',
       GOTMPDIR: '/tmp',
-      GOCACHE: '/tmp/cache',
+      GOCACHE: '/mnt/host/go-cache',
       GOROOT_BOOTSTRAP: '/mnt/host/goroot',
       GOTOOLDIR: '/mnt/host/goroot/pkg/tool/js_wasm',
       GOROOT: '/mnt/host/work',
