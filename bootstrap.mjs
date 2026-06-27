@@ -37,7 +37,7 @@ function withLogging(obj, prefix = "") {
 
         const name = prefix + String(prop);
 
-        console.log(`[nodefs] → ${name}`, args);
+        // console.log(`[nodefs] → ${name}`, args);
 
         try {
 
@@ -245,6 +245,7 @@ async function main() {
       GOTMPDIR: '/tmp',
       GOCACHE: '/tmp/cache',
       GOROOT_BOOTSTRAP: '/mnt/host/goroot',
+      GOTOOLDIR: '/mnt/host/goroot/pkg/tool/js_wasm',
       GOROOT: '/mnt/host/work',
     },
   });
