@@ -23,48 +23,9 @@ import { dirname, join } from 'path';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // ========================= SETUP =========================
-function withLogging(obj, prefix = "") {
-
-  return new Proxy(obj, {
-
-    get(target, prop, receiver) {
-
-      const orig = target[prop];
-
-      if (typeof orig !== "function") return orig;
-
-      return function (...args) {
-
-        const name = prefix + String(prop);
-
-        // console.log(`[nodefs] → ${name}`, args);
-
-        try {
-
-          const ret = orig.apply(this, args);
-
-          // console.log(`[nodefs] ← ${name}`, ret);
-
-          return ret;
-
-        } catch (err) {
-
-          console.log(`[nodefs] ✖ ${name}`, err);
-
-          throw err;
-
-        }
-
-      };
-
-    }
-
-  });
-
-}
 
 // 1. Inject __nodefs bridge (required by overlayNodefs)
-globalThis.__nodefs = withLogging((() => {
+globalThis.__nodefs = (() => {
   const statToObj = s => ({
     dev: s.dev, ino: s.ino, mode: s.mode, nlink: s.nlink,
     uid: s.uid, gid: s.gid, rdev: s.rdev, size: s.size,
@@ -139,7 +100,7 @@ globalThis.__nodefs = withLogging((() => {
       catch (e) { return { err: e.code ? { code: e.code, message: e.message } : e.message }; }
     },
   };
-})());
+})();
 
 // 2. Load Go's wasm_exec.js runtime
 const require = createRequire(import.meta.url);
@@ -164,7 +125,7 @@ async function main() {
   const { hackpad, fs: vfs, child_process } = globalThis;
   const O = vfs.constants;
 
-  globalThis.child_process = withLogging(child_process);
+  globalThis.child_process = child_process;
 
   // ====== overlayMemFS ======
   console.log('\n=== overlayMemFS ===');
