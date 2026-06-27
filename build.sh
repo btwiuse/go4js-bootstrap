@@ -1,5 +1,5 @@
-[[ -f go1.27.0-go4js.1.js-wasm.min.tar.gz ]] || {
-  curl -LO https://github.com/justwasm/go4js/releases/download/go1.27.0-go4js.1/go1.27.0-go4js.1.js-wasm.min.tar.gz
+[[ -f go1.27.0-go4js.1.js-wasm.bin.tar.gz ]] || {
+  curl -LO https://github.com/justwasm/go4js/releases/download/go1.27.0-go4js.1/go1.27.0-go4js.1.js-wasm.bin.tar.gz
 }
 
 [[ -f go1.27.0-go4js.1.js-wasm.src.min.tar.gz ]] || {
@@ -16,7 +16,8 @@ target=work
 mkdir -p $boot $target
 rm -rf $boot $target
 
-tar xf go1.27.0-go4js.1.js-wasm.min.tar.gz
+tar xf go1.27.0-go4js.1.js-wasm.bin.tar.gz
+tar xf go1.27.0-go4js.1.js-wasm.src.min.tar.gz
 mv go $boot
 
 tar xf go1.27.0-go4js.1.js-wasm.src.min.tar.gz
