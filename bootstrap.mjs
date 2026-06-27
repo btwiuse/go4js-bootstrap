@@ -249,9 +249,6 @@ async function main() {
       GOROOT: '/mnt/host/work',
     },
   });
-  await new Promise(r => setTimeout(r, 600)); // wait for inherited stdout to flush
-  console.log('child pid:', subprocess.pid);
-
   // Wait for it
   const result = await new Promise((resolve, reject) => {
     child_process.wait(subprocess.pid, (err, r) => {
