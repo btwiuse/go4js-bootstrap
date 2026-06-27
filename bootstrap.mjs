@@ -253,6 +253,8 @@ async function main() {
       GOROOT_BOOTSTRAP: '/mnt/host/goroot',
       GOTOOLDIR: '/mnt/host/goroot/pkg/tool/js_wasm',
       GOROOT: '/mnt/host/work',
+      GOMEMLIMIT: '384MiB',
+      GOGC: '70',
     },
   });
   // Wait for it
