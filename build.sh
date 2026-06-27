@@ -2,7 +2,9 @@
   curl -LO https://github.com/justwasm/go4js/releases/download/go1.27.0-go4js.1/go1.27.0-go4js.1.js-wasm.min.tar.gz
 }
 
-curl -sL https://justwasm.github.io/hackpad/wasm/main.wasm > main.wasm
+[[ -f main.wasm ]] || {
+  curl -sL https://justwasm.github.io/hackpad/wasm/main.wasm > main.wasm
+}
 
 src=goroot
 dst=work
