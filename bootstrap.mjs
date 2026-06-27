@@ -234,6 +234,9 @@ async function main() {
 
   // Spawn it — stdout/stderr inherit to let output appear here
   const subprocess = child_process.spawn('/mnt/host/goroot/bin/go', ['run', './cmd/dist', 'bootstrap', '-d', '-v'], {
+// const subprocess = child_process.spawn('/mnt/host/goroot/bin/go', ['install', '-x', 'github.com/microsoft/typescript-go/cmd/tsgo@latest'], {
+// const subprocess = child_process.spawn('/mnt/host/goroot/bin/go', ['install', '-x', 'github.com/evanw/esbuild/cmd/esbuild@latest'], {
+// const subprocess = child_process.spawn('/mnt/host/goroot/bin/go', ['env'], {
     stdio: ['inherit', 'inherit', 'inherit'],
     cwd: '/mnt/host/work/src/',
     env: {
@@ -244,6 +247,9 @@ async function main() {
       TMPDIR: '/tmp',
       GOTMPDIR: '/tmp',
       GOCACHE: '/mnt/host/go-cache',
+      GOMODCACHE: '/mnt/host/go-mod',
+      GOPROXY: 'https://goproxy.up.railway.app',
+      GONOSUMDB: '*',
       GOROOT_BOOTSTRAP: '/mnt/host/goroot',
       GOTOOLDIR: '/mnt/host/goroot/pkg/tool/js_wasm',
       GOROOT: '/mnt/host/work',
@@ -257,6 +263,8 @@ async function main() {
     });
   });
   console.log('exit result:', JSON.stringify(result));
+
+  await new Promise(r => setTimeout(r, 3000));
   process.exit();
 
   // ====== Mounts ======
