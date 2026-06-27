@@ -22,3 +22,5 @@ mv go $boot
 
 tar xf go1.27.0-go4js.1.js-wasm.src.min.tar.gz
 mv go $target
+
+cp $target/lib/wasm/wasm_exec.js .
