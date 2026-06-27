@@ -257,6 +257,7 @@ async function main() {
     });
   });
   console.log('exit result:', JSON.stringify(result));
+  process.exit();
 
   // ====== Mounts ======
   console.log('\n=== Mounts ===');
