@@ -266,8 +266,7 @@ async function main() {
   });
   console.log('exit result:', JSON.stringify(result));
 
-  await new Promise(r => setTimeout(r, 3000));
-  process.exit();
+  process.exit(0);
 
   // ====== Mounts ======
   console.log('\n=== Mounts ===');
