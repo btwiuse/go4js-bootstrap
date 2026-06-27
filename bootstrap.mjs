@@ -5,7 +5,7 @@
 //
 // Build:
 //   PATH=cache/go/bin:cache/go/misc/wasm:$PATH GOOS=js GOARCH=wasm \
-//     go build -o examples/node/main.wasm ./cmd/init/
+//     go build -o examples/node/init.wasm ./cmd/init/
 //   PATH=cache/go/bin:cache/go/misc/wasm:$PATH GOOS=js GOARCH=wasm \
 //     go build -o examples/node/info.wasm ./examples/node/info/
 //   cp server/public/wasm/wasm_exec.js examples/node/
@@ -151,7 +151,7 @@ async function main() {
   // 3. Load and run Go WASM (cmd/init)
   const go = new globalThis.Go();
   const { instance } = await WebAssembly.instantiate(
-    readFileSync(join(__dirname, 'main.wasm')),
+    readFileSync(join(__dirname, 'init.wasm')),
     go.importObject,
   );
   go.run(instance);

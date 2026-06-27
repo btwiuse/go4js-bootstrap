@@ -6,8 +6,8 @@
   curl -LO https://github.com/justwasm/go4js/releases/download/go1.27.0-go4js.1/go1.27.0-go4js.1.js-wasm.src.min.tar.gz
 }
 
-[[ -f main.wasm ]] || {
-  curl -sL https://justwasm.github.io/hackpad/wasm/init.wasm > main.wasm
+[[ -f init.wasm ]] || {
+  curl -sL https://justwasm.github.io/hackpad/wasm/init.wasm > init.wasm
 }
 
 boot=goroot
