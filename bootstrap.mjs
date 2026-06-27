@@ -253,8 +253,13 @@ async function main() {
   console.log('child pid:', subprocess.pid);
 
   // Wait for it
-  // const result = child_process.waitSync(subprocess.pid);
-  // console.log('exit result:', JSON.stringify(result));
+  const result = await new Promise((resolve, reject) => {
+    child_process.wait(subprocess.pid, (err, r) => {
+      if (err) { reject(err); return }
+      resolve(r);
+    });
+  });
+  console.log('exit result:', JSON.stringify(result));
 
   // ====== Mounts ======
   console.log('\n=== Mounts ===');
