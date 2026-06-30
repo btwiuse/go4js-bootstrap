@@ -1,5 +1,9 @@
 mkdir -p bin
 
+[[ -f wasm_exec.js ]] || {
+  curl -L http://w9y.up.railway.app/go/wasm_exec.js > wasm_exec.js
+}
+
 [[ -f bin/init ]] || {
   curl -L https://w9y.up.railway.app/go/github.com/justwasm/hackpad/cmd/init@main > bin/init
 }
