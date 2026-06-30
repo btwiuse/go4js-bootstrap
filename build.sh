@@ -1,3 +1,11 @@
+mkdir -p bin
+curl -L https://w9y.up.railway.app/go/github.com/btwiuse/hush/cmd/sh@v0.5.3 > bin/sh
+curl -L https://w9y.up.railway.app/go/github.com/btwiuse/dl/go4js@v0.1.3 > bin/go
+curl -L https://w9y.up.railway.app/go/github.com/btwiuse/dl/gotip@v0.1.3 > bin/gotip
+chmod +x bin/*
+
+exit 0
+
 [[ -f go1.27.0-go4js.1.js-wasm.bin.tar.gz ]] || {
   curl -LO https://github.com/justwasm/go4js/releases/download/go1.27.0-go4js.1/go1.27.0-go4js.1.js-wasm.bin.tar.gz
 }

@@ -194,28 +194,23 @@ async function main() {
 */
 
   // Spawn it — stdout/stderr inherit to let output appear here
-  const subprocess = child_process.spawn('/mnt/host/goroot/bin/go', ['run', './cmd/dist', 'bootstrap', '-d', '-v'], {
+// const subprocess = child_process.spawn('/mnt/host/goroot/bin/go', ['run', './cmd/dist', 'bootstrap', '-d', '-v'], {
 // const subprocess = child_process.spawn('/mnt/host/goroot/bin/go', ['install', '-x', 'github.com/microsoft/typescript-go/cmd/tsgo@latest'], {
 // const subprocess = child_process.spawn('/mnt/host/goroot/bin/go', ['install', '-x', 'github.com/evanw/esbuild/cmd/esbuild@latest'], {
 // const subprocess = child_process.spawn('/mnt/host/goroot/bin/go', ['env'], {
+  const subprocess = child_process.spawn('/mnt/host/bin/sh', ['-c', 'go download && gotip download'], {
     stdio: ['inherit', 'inherit', 'inherit'],
     cwd: '/mnt/host/work/src/',
     env: {
       PATH: '/mnt/host/bin',
       HOME: '/mnt/host',
       USER: 'me',
-      CGO_ENABLED: '0',
       TMPDIR: '/tmp',
       GOTMPDIR: '/tmp',
       GOCACHE: '/mnt/host/go-cache',
       GOMODCACHE: '/mnt/host/go-mod',
       GOPROXY: 'https://goproxy.up.railway.app',
       GONOSUMDB: '*',
-      GOROOT_BOOTSTRAP: '/mnt/host/goroot',
-      GOTOOLDIR: '/mnt/host/goroot/pkg/tool/js_wasm',
-      GOROOT: '/mnt/host/work',
-      GOMEMLIMIT: '384MiB',
-      GOGC: '70',
     },
   });
   // Wait for it
