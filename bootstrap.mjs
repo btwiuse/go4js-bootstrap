@@ -165,7 +165,7 @@ async function main() {
   await new Promise(r => setTimeout(r, 1600)); // wait for inherited stdout to flush
   const subprocess2 = child_process.spawn('/mnt/host/goroot/bin/go', ['env'], {
     stdio: ['inherit', 'inherit', 'inherit'],
-    cwd: '/mnt/host/work/src',
+    cwd: '/mnt/host/',
     env: {
       PATH: '/bin',
       HOME: '/home/me',
@@ -179,7 +179,7 @@ async function main() {
 
   const subprocess7 = child_process.spawn('/mnt/host/go/bin/go', ['install', '-x', 'std'], {
     stdio: ['inherit', 'inherit', 'inherit'],
-    cwd: '/mnt/host/work/src/',
+    cwd: '/mnt/host/',
     env: {
       PATH: '/mnt/host/bin',
       HOME: '/home/me',
@@ -200,7 +200,7 @@ async function main() {
 // const subprocess = child_process.spawn('/mnt/host/goroot/bin/go', ['env'], {
   const subprocess = child_process.spawn('/mnt/host/bin/sh', ['-c', 'go download && gotip download'], {
     stdio: ['inherit', 'inherit', 'inherit'],
-    cwd: '/mnt/host/work/src/',
+    cwd: '/mnt/host/',
     env: {
       PATH: '/mnt/host/bin',
       HOME: '/mnt/host',
