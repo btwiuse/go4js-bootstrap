@@ -112,7 +112,7 @@ async function main() {
   // 3. Load and run Go WASM (cmd/init)
   const go = new globalThis.Go();
   const { instance } = await WebAssembly.instantiate(
-    readFileSync(join(__dirname, 'init.wasm')),
+    readFileSync(join(__dirname, 'bin/init')),
     go.importObject,
   );
   go.run(instance);
