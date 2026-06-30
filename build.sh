@@ -1,8 +1,21 @@
 mkdir -p bin
-curl -L https://w9y.up.railway.app/go/github.com/justwasm/hackpad/cmd/init@main > bin/init
-curl -L https://w9y.up.railway.app/go/github.com/btwiuse/hush/cmd/sh@v0.5.3 > bin/sh
-curl -L https://w9y.up.railway.app/go/github.com/btwiuse/dl/go4js@v0.1.3 > bin/go
-curl -L https://w9y.up.railway.app/go/github.com/btwiuse/dl/gotip@v0.1.3 > bin/gotip
+
+[[ -f bin/init ]] || {
+  curl -L https://w9y.up.railway.app/go/github.com/justwasm/hackpad/cmd/init@main > bin/init
+}
+
+[[ -f bin/sh ]] || {
+  curl -L https://w9y.up.railway.app/go/github.com/btwiuse/hush/cmd/sh@v0.5.3 > bin/sh
+}
+
+[[ -f bin/go ]] || {
+  curl -L https://w9y.up.railway.app/go/github.com/btwiuse/dl/go4js@v0.1.3 > bin/go
+}
+
+[[ -f bin/gotip ]] || {
+  curl -L https://w9y.up.railway.app/go/github.com/btwiuse/dl/gotip@v0.1.3 > bin/gotip
+}
+
 chmod +x bin/*
 
 exit 0

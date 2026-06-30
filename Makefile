@@ -9,3 +9,6 @@ build:
 
 node: build
 	time node bootstrap.mjs | ts
+
+deno: build
+	time deno -A bootstrap.mjs | ts
